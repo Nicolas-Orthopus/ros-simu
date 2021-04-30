@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name ="Jaco">
 
-
+  <link name = "world"/>
   <link name = "base_link">
     <visual>
       <geometry>
@@ -18,7 +18,11 @@
         izz="0.0008202" />
     </inertial>  
   </link>	
-
+  
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
      
   <link name="link_2">
     <visual>
