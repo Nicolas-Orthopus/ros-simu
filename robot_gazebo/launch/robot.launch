@@ -4,4 +4,5 @@
     <arg name="world_name" value="$(find robot_gazebo)/worlds/robot.world"/>
     <!-- more default parameters can be changed here -->
   </include>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -file $(find robot_description)/urdf/Jaco_def.urdf  -z 1 -model Jaco" />
 </launch>
