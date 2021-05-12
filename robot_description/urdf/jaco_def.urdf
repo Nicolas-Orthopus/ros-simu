@@ -12,6 +12,14 @@
       </geometry>
       <origin xyz="0 0 0.07895"/>
     </visual>
+    <inertial>
+      <origin xyz="0 0 0.015856" rpy="0 0 0"/>
+      <mass value="0.7872084" />
+      <inertia 
+        ixx="0.001292" ixy="0" ixz="0"
+        iyy="0.001292" iyz="0"
+        izz="0.0009778" />
+    </inertial>       
   </link>	
   <link name="link_2">
     <visual>
@@ -64,7 +72,7 @@
   <link name="link_5">
     <visual>
       <geometry>
-        <mesh filename="file://$(find robot_description)/meshes/wrist.STL"/>
+        <mesh filename="package://robot_description/meshes/wrist.STL"/>
       </geometry>
       <origin rpy ="0 3.14 -1.57" xyz="0 0 0"/>
     </visual>
@@ -80,7 +88,7 @@
   <link name="link_6">
     <visual>
       <geometry>
-        <mesh filename="file://$(find robot_description)/meshes/wrist.STL"/>
+        <mesh filename="package://robot_description/meshes/wrist.STL"/>
       </geometry>
       <origin rpy="0 3.14 1.57" xyz="0 0 0"/>
     </visual>
