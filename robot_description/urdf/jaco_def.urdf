@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <robot name ="Jaco">
-
-  <link name = "world"/>
   <link name = "base_link">
+    <collision>
+      <geometry>
+        <cylinder length="0.10" radius="0.03"/>
+      </geometry>    
+    </collision>
     <visual>
       <geometry>
         <cylinder length="0.1579" radius="0.03"/>
@@ -10,20 +13,14 @@
       <origin xyz="0 0 0.07895"/>
     </visual>
     <inertial>
-      <origin xyz="0 0 0.031812" rpy="0 0 0"/>
-      <mass value="0.601719" />
+      <origin xyz="0 0 0.015856" rpy="0 0 0"/>
+      <mass value="0.7872084" />
       <inertia 
-        ixx="0.001835" ixy="0" ixz="0"
-        iyy="0.001835" iyz="0"
-        izz="0.0008202" />
-    </inertial>  
+        ixx="0.001292" ixy="0" ixz="0"
+        iyy="0.001292" iyz="0"
+        izz="0.0009778" />
+    </inertial>       
   </link>	
-  
-  <joint name="fixed" type="fixed">
-    <parent link="world"/>
-    <child link="base_link"/>
-  </joint>
-     
   <link name="link_2">
     <visual>
       <geometry>
@@ -40,8 +37,6 @@
         izz="0.0009778" />
     </inertial>    
   </link>
-
-     
   <link name="link_3">
     <visual>
       <geometry>
@@ -58,8 +53,6 @@
         izz="0.001777" />
     </inertial>  
   </link>
-
-     
   <link name="link_4">
     <visual>
       <geometry>
@@ -76,12 +69,10 @@
         izz="0.001177" />
     </inertial>  
   </link>
-
-     
   <link name="link_5">
     <visual>
       <geometry>
-        <mesh filename="file://$(find robot_description)/meshes/wrist.STL"/>
+        <mesh filename="package://robot_description/meshes/wrist.STL"/>
       </geometry>
       <origin rpy ="0 3.14 -1.57" xyz="0 0 0"/>
     </visual>
@@ -94,12 +85,10 @@
         izz="0.0005721" />
     </inertial>  
   </link>
-
-     
   <link name="link_6">
     <visual>
       <geometry>
-        <mesh filename="file://$(find robot_description)/meshes/wrist.STL"/>
+        <mesh filename="package://robot_description/meshes/wrist.STL"/>
       </geometry>
       <origin rpy="0 3.14 1.57" xyz="0 0 0"/>
     </visual>
@@ -112,8 +101,6 @@
         izz="0.0005721" />
     </inertial>  
   </link>
-
-     
   <link name="effector">
     <visual>
       <geometry>
@@ -130,7 +117,6 @@
         izz="0.0008264" />
     </inertial>  
   </link>
-
   <joint name="joint_1" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
@@ -138,7 +124,6 @@
     <parent link="base_link"/>
     <child link="link_2"/>
   </joint>
-
   <joint name="joint_2" type="revolute">
     <axis xyz="1 0 0"/>
     <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
@@ -146,7 +131,6 @@
     <parent link="link_2"/>
     <child link="link_3"/>
   </joint>
-
   <joint name="joint_3" type="revolute">
     <axis xyz="1 0 0"/>
     <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
@@ -154,7 +138,6 @@
     <parent link="link_3"/>
     <child link="link_4"/>
   </joint>
-
   <joint name="joint_4" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
@@ -162,7 +145,6 @@
     <parent link="link_4"/>
     <child link="link_5"/>
   </joint>
-
   <joint name="joint_5" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
@@ -170,7 +152,6 @@
     <parent link="link_5"/>
     <child link="link_6"/>
   </joint>
-
   <joint name="joint_6" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
@@ -178,6 +159,7 @@
     <parent link="link_6"/>
     <child link="effector"/>
   </joint>
+<<<<<<< HEAD:robot_description/urdf/Jaco_def.urdf
 
   <transmission name="trans_1">
     <type>transmission_interface/SimpleTransmission</type>
@@ -246,3 +228,6 @@
   </transmission>  
   
 </robot>      
+=======
+</robot>    
+>>>>>>> 9ceab83f03757d97807092364a97fefe10932e3a:robot_description/urdf/jaco_def.urdf
