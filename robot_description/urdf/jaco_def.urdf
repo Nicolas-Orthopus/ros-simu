@@ -159,7 +159,6 @@
     <parent link="link_6"/>
     <child link="effector"/>
   </joint>
-<<<<<<< HEAD:robot_description/urdf/Jaco_def.urdf
 
   <transmission name="trans_1">
     <type>transmission_interface/SimpleTransmission</type>
@@ -226,8 +225,12 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>  
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/jaco</robotNamespace>
+    </plugin>
+  </gazebo> 
   
 </robot>      
-=======
-</robot>    
->>>>>>> 9ceab83f03757d97807092364a97fefe10932e3a:robot_description/urdf/jaco_def.urdf
+
