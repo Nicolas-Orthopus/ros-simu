@@ -17,3 +17,4 @@ Document this file
 - Now in the RQT interface go to Plugin->Topic->Message Publisher
 - Add the joints you want to control, and set the rate if needed 
 - Add the actuator's position equation in data
+- install potential missing packages with : sudo apt-get install ros-noetic-ros-control ros-noetic-joint-state-controller- ros-noetic-effort-controllers ros-noetic-position-controllers ros-noetic-velocity-controllers ros-noetic-ros-controllers ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control
