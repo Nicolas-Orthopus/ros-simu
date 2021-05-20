@@ -135,7 +135,7 @@
   </joint>
   <joint name="joint_2" type="continuous">
     <axis xyz="1 0 0"/>
-    <limit effort ="1200" velocity="12.2"/>
+    <limit effort ="12" velocity="12.2"/>
     <origin rpy="0 0 0" xyz="0 0 0.1176" />
     <parent link="link_2"/>
     <child link="link_3"/>
