@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<robot name ="at6x">
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="link_1"/>
+  </joint>
+  
+  <link name = "link_1">
+    <collision>
+      <geometry>
+        <cylinder length="0.10" radius="0.03"/>
+      </geometry>    
+    </collision>
+    <visual>
+      <geometry>
+        <cylinder length="0.1579" radius="0.03"/>
+      </geometry>
+      <origin xyz="0 0 0.07895"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.015856" rpy="0 0 0"/>
+      <mass value="0.7872084" />
+      <inertia 
+        ixx="0.001292" ixy="0" ixz="0"
+        iyy="0.001292" iyz="0"
+        izz="0.0009778" />
+    </inertial>       
+  </link>	
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.1176" radius="0.03"/>
+      </geometry>
+      <origin xyz="0 0 0.0588"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.015856" rpy="0 0 0"/>
+      <mass value="0.7872084" />
+      <inertia 
+        ixx="0.001292" ixy="0" ixz="0"
+        iyy="0.001292" iyz="0"
+        izz="0.0009778" />
+    </inertial>    
+  </link>
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.41" radius="0.03"/>
+      </geometry>
+      <origin xyz="0 0 0.205"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.107828" rpy="0 0 0"/>
+      <mass value="1.205432" />
+      <inertia 
+        ixx="0.02248" ixy="0" ixz="0"
+        iyy="0.02248" iyz="0"
+        izz="0.001777" />
+    </inertial>  
+  </link>
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.2073" radius="0.03"/>
+      </geometry>
+      <origin xyz="0 0 0.10385"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.037043" rpy="0 0 0"/>
+      <mass value="0.89128" />
+      <inertia 
+        ixx="0.003968" ixy="0" ixz="0"
+        iyy="0.003968" iyz="0"
+        izz="0.001177" />
+    </inertial>  
+  </link>
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <mesh filename="package://armms_description/meshes/at6x_wrist.STL"/>
+      </geometry>
+      <origin rpy ="0 3.14 -1.57" xyz="0 0 0"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.00863" rpy="0 0 0"/>
+      <mass value="0.471842" />
+      <inertia 
+        ixx="0.0004611" ixy="0" ixz="0"
+        iyy="0.0004611" iyz="0"
+        izz="0.0005721" />
+    </inertial>  
+  </link>
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <mesh filename="package://armms_description/meshes/at6x_wrist.STL"/>
+      </geometry>
+      <origin rpy="0 3.14 1.57" xyz="0 0 0"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.00863" rpy="0 0 0"/>
+      <mass value="0.471842" />
+      <inertia 
+        ixx="0.0004611" ixy="0" ixz="0"
+        iyy="0.0004611" iyz="0"
+        izz="0.0005721" />
+    </inertial>  
+  </link>
+  <link name="effector">
+    <visual>
+      <geometry>
+        <cylinder length="0.16" radius="0.03"/>
+      </geometry>
+      <origin xyz="0 0 0.080"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.032496" rpy="0 0 0"/>
+      <mass value="0.604973" />
+      <inertia 
+        ixx="0.001890" ixy="0" ixz="0"
+        iyy="0.001890" iyz="0"
+        izz="0.0008264" />
+    </inertial>  
+  </link>
+  <joint name="joint_1" type="continuous">
+    <axis xyz="0 0 1"/>
+    <limit effort ="12" velocity="12.2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1579" />
+    <parent link="link_1"/>
+    <child link="link_2"/>
+  </joint>
+  <joint name="joint_2" type="continuous">
+    <axis xyz="1 0 0"/>
+    <limit effort ="12" velocity="12.2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1176" />
+    <parent link="link_2"/>
+    <child link="link_3"/>
+  </joint>
+  <joint name="joint_3" type="continuous">
+    <axis xyz="1 0 0"/>
+    <limit effort ="12" velocity="12.2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.41" />
+    <parent link="link_3"/>
+    <child link="link_4"/>
+  </joint>
+  <joint name="joint_4" type="continuous">
+    <axis xyz="0 0 1"/>
+    <limit effort ="3.6" velocity="20.3"/>
+    <origin rpy="0 0 0" xyz="0 0 0.2073" />
+    <parent link="link_4"/>
+    <child link="link_5"/>
+  </joint>
+  <joint name="joint_5" type="continuous">
+    <axis xyz="0 0 1"/>
+    <limit effort ="3.6" velocity="20.3"/>
+    <origin rpy="0 -1.0472 0" xyz="-0.038 0 0.0631" />
+    <parent link="link_5"/>
+    <child link="link_6"/>
+  </joint>
+  <joint name="joint_6" type="continuous">
+    <axis xyz="0 0 1"/>
+    <limit effort ="3.6" velocity="20.3"/>
+    <origin rpy="0 1.0472 0" xyz="0.038 0.0 0.0631" />
+    <parent link="link_6"/>
+    <child link="effector"/>
+  </joint>
+
+  <transmission name="trans_1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="trans_2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="trans_3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="trans_4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="trans_5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="trans_6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/at6x</robotNamespace>
+    </plugin>
+  </gazebo> 
+  
+</robot>      
+
