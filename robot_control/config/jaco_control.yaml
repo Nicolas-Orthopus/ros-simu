@@ -12,7 +12,11 @@ jaco:
   joint_2_position_controller:
     type: effort_controllers/JointPositionController
     joint: joint_2
+<<<<<<< HEAD
     pid: {p: 400.0, i: 0.01, d: 18.0}     
+=======
+    pid: {p: 400, i: 0.01, d: 18.0}     
+>>>>>>> 4903636e3edbf2bf9e9e906e5744457ce9e46f47
   joint_3_position_controller:
     type: effort_controllers/JointPositionController
     joint: joint_3
@@ -20,7 +24,11 @@ jaco:
   joint_4_position_controller:
     type: effort_controllers/JointPositionController
     joint: joint_4
+<<<<<<< HEAD
     pid: {p: 140.0, i: 0.01, d: 5.0}
+=======
+    pid: {p: 140, i: 0.01, d: 5.0}
+>>>>>>> 4903636e3edbf2bf9e9e906e5744457ce9e46f47
   joint_5_position_controller:
     type: effort_controllers/JointPositionController
     joint: joint_5

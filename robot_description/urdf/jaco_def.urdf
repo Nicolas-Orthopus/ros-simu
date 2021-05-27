@@ -1,5 +1,14 @@
 <?xml version="1.0"?>
 <robot name ="Jaco">
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  
   <link name = "base_link">
     <collision>
       <geometry>
@@ -117,44 +126,44 @@
         izz="0.0008264" />
     </inertial>  
   </link>
-  <joint name="joint_1" type="revolute">
+  <joint name="joint_1" type="continuous">
     <axis xyz="0 0 1"/>
-    <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
+    <limit effort ="12" velocity="12.2"/>
     <origin rpy="0 0 0" xyz="0 0 0.1579" />
     <parent link="base_link"/>
     <child link="link_2"/>
   </joint>
-  <joint name="joint_2" type="revolute">
+  <joint name="joint_2" type="continuous">
     <axis xyz="1 0 0"/>
-    <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
+    <limit effort ="12" velocity="12.2"/>
     <origin rpy="0 0 0" xyz="0 0 0.1176" />
     <parent link="link_2"/>
     <child link="link_3"/>
   </joint>
-  <joint name="joint_3" type="revolute">
+  <joint name="joint_3" type="continuous">
     <axis xyz="1 0 0"/>
-    <limit effort ="12" lower="0" upper="6.28319" velocity="12.2"/>
+    <limit effort ="12" velocity="12.2"/>
     <origin rpy="0 0 0" xyz="0 0 0.41" />
     <parent link="link_3"/>
     <child link="link_4"/>
   </joint>
-  <joint name="joint_4" type="revolute">
+  <joint name="joint_4" type="continuous">
     <axis xyz="0 0 1"/>
-    <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
+    <limit effort ="3.6" velocity="20.3"/>
     <origin rpy="0 0 0" xyz="0 0 0.2073" />
     <parent link="link_4"/>
     <child link="link_5"/>
   </joint>
-  <joint name="joint_5" type="revolute">
+  <joint name="joint_5" type="continuous">
     <axis xyz="0 0 1"/>
-    <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
+    <limit effort ="3.6" velocity="20.3"/>
     <origin rpy="0 -1.0472 0" xyz="-0.038 0 0.0631" />
     <parent link="link_5"/>
     <child link="link_6"/>
   </joint>
-  <joint name="joint_6" type="revolute">
+  <joint name="joint_6" type="continuous">
     <axis xyz="0 0 1"/>
-    <limit effort ="3.6" lower="0" upper="6.28319" velocity="20.3"/>
+    <limit effort ="3.6" velocity="20.3"/>
     <origin rpy="0 1.0472 0" xyz="0.038 0.0 0.0631" />
     <parent link="link_6"/>
     <child link="effector"/>
