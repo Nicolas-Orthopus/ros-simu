@@ -1,0 +1,50 @@
+jaco: 
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+    
+  # Arm Controller ---------------------------------------
+  arm_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6
+    
+    constraints:
+      goal_time: 0.5
+      stopped_velocity_tolerance: 0.02 
+      joint_1:
+        trajectory: 0.05
+        goal: 0.02
+      joint_2:
+        trajectory: 0.05
+        goal: 0.02
+      joint_3:
+        trajectory: 0.05
+        goal: 0.02
+      joint_4:
+        trajectory: 0.05
+        goal: 0.02
+      joint_5:
+        trajectory: 0.05
+        goal: 0.02
+      joint_6:
+        trajectory: 0.05
+        goal: 0.02  
+        
+    gains:
+      joint_1: {p:125.0, i:0.01, d:13.5}  
+      joint_2: {p:400.0, i:0.01, d:18.0}  
+      joint_3: {p:100.0, i:0.01, d:10.0}  
+      joint_4: {p:140.0, i:0.01, d:5.0}  
+      joint_5: {p:180.0, i:0.01, d:7.0}  
+      joint_6: {p:160.0, i:0.01, d:2.5}      
+      
+    state_publish_rate: 25
+    action_monitor_rate : 30
+    stop_trajectory_duration : 0
