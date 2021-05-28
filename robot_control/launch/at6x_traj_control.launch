@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find armms-control)/config/at6x_traj_control.yaml" command="load"/>
+
+  <param name="robot_description" command="cat $(find armms-description)/urdf/at6x.urdf"/>
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/at6x" args="joint_state_controller
+                                     arm_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/at6x/joint_states" />
+  </node>
+
+</launch>

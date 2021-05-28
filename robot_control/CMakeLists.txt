@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   robot_state_publisher
 )
 
+add_executable(traj_1 traj_1.cpp)
+target_link_libraries(traj_1 ${catkin_LIBRARIES})
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 

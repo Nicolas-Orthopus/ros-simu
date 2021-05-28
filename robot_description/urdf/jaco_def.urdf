@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<robot name ="Jaco">
+<robot name ="jaco">
 
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
 
   <joint name="fixed" type="fixed">
     <parent link="world"/>
-    <child link="base_link"/>
+    <child link="link_1"/>
   </joint>
   
-  <link name = "base_link">
+  <link name = "link_1">
     <collision>
       <geometry>
         <cylinder length="0.10" radius="0.03"/>
@@ -130,7 +130,7 @@
     <axis xyz="0 0 1"/>
     <limit effort ="12" velocity="12.2"/>
     <origin rpy="0 0 0" xyz="0 0 0.1579" />
-    <parent link="base_link"/>
+    <parent link="link_1"/>
     <child link="link_2"/>
   </joint>
   <joint name="joint_2" type="continuous">
@@ -172,10 +172,10 @@
   <transmission name="trans_1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_1">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_1">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -183,10 +183,10 @@
   <transmission name="trans_2">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_2">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_2">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -194,10 +194,10 @@
   <transmission name="trans_3">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_3">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_3">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -205,10 +205,10 @@
   <transmission name="trans_4">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_4">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_4">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -216,10 +216,10 @@
   <transmission name="trans_5">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_5">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_5">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -227,10 +227,10 @@
   <transmission name="trans_6">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint_6">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_6">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>  
