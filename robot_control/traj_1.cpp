@@ -18,7 +18,7 @@ typedef boost::shared_ptr< arm_control_client>  arm_control_client_Ptr;
 
 
 // Create a ROS action client to move TIAGo's arm
-void createArmClient(arm_control_client_Ptr& actionClient)
+void createArmClient(arm_control_client_Ptr& arm_control_client)
 {
   ROS_INFO("Creating action client to arm controller ...");
 
