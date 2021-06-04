@@ -7,15 +7,33 @@ project(robot_control)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg actionlib control_msgs trajectory_msgs
+find_package(catkin REQUIRED COMPONENTS 
+  roscpp 
+  rospy 
+  std_msgs 
+  genmsg 
+  actionlib 
+  actionlib_msgs
+  control_msgs 
+  trajectory_msgs
   controller_manager
   joint_state_controller
   robot_state_publisher
 )
 
+
+
+catkin_package(
+#  INCLUDE_DIRS include      #only include if we have headers, etc
+#  LIBRARIES test_package
+#  CATKIN_DEPENDS roscpp
+#  DEPENDS system_lib
+)
+
+include_directories(include)
+include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
 add_executable(traj_1 traj_1.cpp)
 target_link_libraries(traj_1 ${catkin_LIBRARIES})
-
 
 ### INSTALL ###
 

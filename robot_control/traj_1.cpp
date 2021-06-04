@@ -2,6 +2,7 @@
 #include <exception>
 #include <string>
 
+
 // Boost headers
 #include <boost/shared_ptr.hpp>
 
@@ -17,11 +18,11 @@ typedef actionlib::SimpleActionClient<control_msgs::FollowJointTrajectoryAction>
 typedef boost::shared_ptr< arm_control_client>  arm_control_client_Ptr;
 
 
-// Create a ROS action client to move TIAGo's arm
-void createArmClient(arm_control_client_Ptr& arm_control_client)
+// Create a ROS action client to move the at6x
+void createArmClient(arm_control_client_Ptr& actionClient)
 {
   ROS_INFO("Creating action client to arm controller ...");
-
+  
   actionClient.reset( new arm_control_client("/arm_controller/follow_joint_trajectory") );
 
   int iterations = 0, max_iterations = 3;
@@ -135,7 +136,7 @@ int main(int argc, char** argv)
   // Init the ROS node
   ros::init(argc, argv, "run_traj_control");
 
-  ROS_INFO("Starting run_traj_control application ...");
+  ROS_INFO("Starting traj_1 application ...");
  
   // Precondition: Valid clock
   ros::NodeHandle nh;
